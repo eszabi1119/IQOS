@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mnbchanges", "mnbchanges\mnbchanges.csproj", "{CBB9B230-D26E-442A-ACD4-A7B9795685C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBB9B230-D26E-442A-ACD4-A7B9795685C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB9B230-D26E-442A-ACD4-A7B9795685C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB9B230-D26E-442A-ACD4-A7B9795685C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB9B230-D26E-442A-ACD4-A7B9795685C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88592E14-4121-4168-B52D-302D7672FBC2}
+	EndGlobalSection
+EndGlobal
