@@ -1,0 +1,10 @@
+C:\www\bin\licitFinal.dll.config
+C:\www\bin\licitFinal.dll
+C:\www\bin\licitFinal.pdb
+C:\www\dnn9\licitFinal\licitFinal\obj\Debug\licitFinal.csproj.AssemblyReference.cache
+C:\www\dnn9\licitFinal\licitFinal\obj\Debug\Iqos.Dnn.licitFinal.App_LocalResources.Settings.resources
+C:\www\dnn9\licitFinal\licitFinal\obj\Debug\licitFinal.csproj.GenerateResource.cache
+C:\www\dnn9\licitFinal\licitFinal\obj\Debug\licitFinal.csproj.CoreCompileInputs.cache
+C:\www\dnn9\licitFinal\licitFinal\obj\Debug\licitFinal.csproj.Up2Date
+C:\www\dnn9\licitFinal\licitFinal\obj\Debug\licitFinal.dll
+C:\www\dnn9\licitFinal\licitFinal\obj\Debug\licitFinal.pdb

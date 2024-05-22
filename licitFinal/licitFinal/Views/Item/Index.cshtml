@@ -1,0 +1,86 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable< Iqos.Dnn.licitFinal.Models.Item >>
+
+@using System.Text.RegularExpressions
+@using DotNetNuke.Web.Mvc.Helpers
+
+
+<div id="Items-@Dnn.ModuleContext.ModuleId">
+    <label for="product-select">Select Product:</label>
+    <select id="product-select">
+        <option value="">-- Choose Product --</option>
+        @foreach (var product in Model.Products)
+        {
+            <option value="@product.ProductId">@product.ProductName</option>
+        }
+    </select>
+
+    <button id="load-product">Load Product</button>
+
+    <h2 id="item-name"></h2>
+    <p>Current Bid: <span id="current-bid">0</span></p>
+    <p>Min Bid: <span id="min-bid">0</span></p>
+
+    <div class="bid-box">
+        <label for="bid-amount">Your Bid:</label>
+        <input type="number" id="bid-amount" min="1">
+        <button id="place-bid">Place Bid</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script>
+        // Element References
+        const productSelect = document.getElementById('product-select');
+        const itemName = document.getElementById('item-name');
+        const currentBid = document.getElementById('current-bid');
+        const minBid = document.getElementById('min-bid');
+        const loadProductButton = document.getElementById('load-product');
+        const bidAmountInput = document.getElementById('bid-amount');
+        const placeBidButton = document.getElementById('place-bid');
+        const messageDiv = document.getElementById('message');
+
+        // Load Product Event
+        loadProductButton.addEventListener('click', () => {
+            const selectedProductId = productSelect.value;
+            if (selectedProductId) {
+                // Fetch product details from your DNN controller/API using AJAX
+                fetch(`/YourController/GetProductDetails?productId=${selectedProductId}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(product => {
+                        itemName.textContent = product.ProductName;
+                        currentBid.textContent = product.CurrentBid;
+                        minBid.textContent = product.MinimumBid; // Get from server
+                        bidAmountInput.min = product.MinimumBid;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching product details:', error);
+                        messageDiv.textContent = "Error loading product. Please try again.";
+                    });
+            } else {
+                alert("Please select a product first.");
+            }
+        });
+
+        // Place Bid Event
+        placeBidButton.addEventListener('click', () => {
+            const newBidAmount = parseInt(bidAmountInput.value);
+            const currentBidValue = parseInt(currentBid.textContent);
+
+            // Basic bid validation
+            if (newBidAmount >= parseInt(minBid.textContent)) {
+                // In a real application, you'd send this bid to the server for processing and validation
+                const totalBid = newBidAmount + currentBidValue;
+                currentBid.textContent = totalBid;
+                messageDiv.textContent = "Successful bid!";
+                bidAmountInput.value = '';
+            } else {
+                messageDiv.textContent = "Bid must be higher than or equal to the minimum bid.";
+            }
+        });
+    </script>
+</div>
